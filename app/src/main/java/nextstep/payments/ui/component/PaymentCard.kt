@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
@@ -61,10 +62,9 @@ fun PaymentCard(
                 .shadow(8.dp)
                 .height(124.dp)
                 .widthIn(min = 0.dp, max = 208.dp)
-                .background(
-                    color = brand.toColor(),
-                    shape = RoundedCornerShape(5.dp),
-                ).clickable(onClick = onClick),
+                .clip(shape = RoundedCornerShape(5.dp))
+                .background(color = brand.toColor())
+                .clickable(onClick = onClick),
     ) {
         Column(
             modifier = Modifier.padding(14.dp),
